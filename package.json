@@ -1,0 +1,29 @@
+{
+  "name": "node-csdn",
+  "version": "1.0.0",
+  "description": "Visit csdn by using node.js",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://code.aliyun.com/smileyan/node-csdn.git"
+  },
+  "keywords": [
+    "csdn",
+    "node.js",
+    "smileyan",
+    "eletron"
+  ],
+  "author": "smileyan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "electron": "^6.0.2",
+    "electron-builder": "^21.2.0"
+  }
+}

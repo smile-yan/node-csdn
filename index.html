@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Smileyan</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+	<script>
+		$.get("http://127.0.0.1:9899/", function (data, status) {
+                // alert("数据: " + data + "\n状态: " + status);
+				var obj = JSON.parse(data);
+                $("#con").append("<p id=\"p1\" class=\"container text-center\">积分："+obj.score+"</p>");
+                $("#con").append("<p id=\"p2\" class=\"container text-center\">排名："+obj.place+"</p>");
+                $("#con").append("<p id=\"p3\" class=\"container text-center\">访客："+obj.visitor+"</p>");
+               
+				var temp = obj.visitor % 100;
+				$("#pro").text(""+temp+"%");
+				$("#pro").css("width",temp+"%");
+				$("#mytitle").text(""+obj.csdn+"");
+            });
+			
+
+           function myget() {
+				$.get("http://127.0.0.1:9899/", function (data, status) {
+					// alert("数据: " + data + "\n状态: " + status);
+					var obj = JSON.parse(data);
+					$("#p1").text("积分："+obj.score);
+					$("#p2").text("排名："+obj.place);
+					$("#p3").text("访客："+obj.visitor);
+			
+					var temp = obj.visitor % 100;
+					$("#pro").text(""+temp+"%");
+					$("#pro").css("width",temp+"%");
+				});
+				
+			} 
+			var time = window.setInterval(function(){
+				console.log("sunck is ");
+				myget();
+			},5000)
+	</script>
+</head>
+<body>
+
+<div class="jumbotron jumbotron-fluid">
+    <div id="con" class="container text-center">
+        <h1 id="mytitle">Smileyan</h1>
+<!--		
+		<p id="p1" class="container text-center">积分：<span id="score"></span></p>
+		<p id="p2" class="container text-center">排名：<span id="place"></span></p>
+		<p id="p3" class="container text-center">访客：<span id="visitor"></span></p>
+-->	
+    </div>
+	<div class="container text-center">
+		<div class="container">
+			<div class="progress" style="height:30px">
+				<div id="pro" class="progress-bar progress-bar-striped progress-bar-animated" style="width:40%">
+					LOADING...
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+
+</body>
+</html>
