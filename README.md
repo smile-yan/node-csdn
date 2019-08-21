@@ -8,7 +8,7 @@ npm install
 ## 启动可执行程序
 npm start
 ```
-```bashsxx
+```bash
 ## 打包
 npm install electron-builder
 .\node_modules\.bin\electron-builder -w 
